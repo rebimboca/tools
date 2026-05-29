@@ -1,0 +1,41 @@
+{
+  "name": "@rebimboca/seo",
+  "description": "SEO utilities — slug generation, meta tag helpers and more.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/seo"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/seo#readme",
+  "keywords": [
+    "seo",
+    "slug",
+    "meta-tags"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}

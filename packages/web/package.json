@@ -1,0 +1,45 @@
+{
+  "name": "@rebimboca/web",
+  "description": "Web and network utilities — URL parsing, HTTP helpers and more.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/web"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/web#readme",
+  "keywords": [
+    "web",
+    "url",
+    "http",
+    "network"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rebimboca/text": "workspace:*"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}

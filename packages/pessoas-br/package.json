@@ -1,0 +1,47 @@
+{
+  "name": "@rebimboca/pessoas-br",
+  "description": "Ferramentas de dados de pessoas brasileiras — nomes, CPF, endereços e mais.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/pessoas-br"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/pessoas-br#readme",
+  "keywords": [
+    "brasil",
+    "cpf",
+    "nome",
+    "pessoa",
+    "endereco"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rebimboca/documentos-br": "workspace:*",
+    "@rebimboca/random": "workspace:*"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}

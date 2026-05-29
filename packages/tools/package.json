@@ -1,0 +1,57 @@
+{
+  "name": "@rebimboca/tools",
+  "description": "Aggregator package that re-exports all @rebimboca/* utilities.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/tools"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/tools#readme",
+  "keywords": [
+    "rebimboca",
+    "tools",
+    "utilities",
+    "brasil"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rebimboca/documentos-br": "workspace:*",
+    "@rebimboca/bancario-br": "workspace:*",
+    "@rebimboca/veiculos-br": "workspace:*",
+    "@rebimboca/pessoas-br": "workspace:*",
+    "@rebimboca/empresas-br": "workspace:*",
+    "@rebimboca/trabalho-br": "workspace:*",
+    "@rebimboca/text": "workspace:*",
+    "@rebimboca/random": "workspace:*",
+    "@rebimboca/encoding": "workspace:*",
+    "@rebimboca/crypto": "workspace:*",
+    "@rebimboca/web": "workspace:*",
+    "@rebimboca/seo": "workspace:*",
+    "@rebimboca/design": "workspace:*",
+    "@rebimboca/image": "workspace:*"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}

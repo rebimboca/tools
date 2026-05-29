@@ -1,0 +1,44 @@
+{
+  "name": "@rebimboca/crypto",
+  "description": "Hash, checksum, and password utilities for Node.js and browsers.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/crypto"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/crypto#readme",
+  "keywords": [
+    "crypto",
+    "hash",
+    "md5",
+    "sha1",
+    "password"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "bench": "vitest bench bench --run",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}

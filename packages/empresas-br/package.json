@@ -1,0 +1,45 @@
+{
+  "name": "@rebimboca/empresas-br",
+  "description": "Ferramentas de dados de empresas brasileiras — CNPJ, inscrição estadual e razão social.",
+  "license": "MIT",
+  "author": "Mateus Cavalcanti <mateusjrcavalcanti@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebimboca/tools.git",
+    "directory": "packages/empresas-br"
+  },
+  "homepage": "https://github.com/rebimboca/tools/tree/main/packages/empresas-br#readme",
+  "keywords": [
+    "brasil",
+    "cnpj",
+    "empresa",
+    "inscricao-estadual"
+  ],
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rebimboca/documentos-br": "workspace:*"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  }
+}
