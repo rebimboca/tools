@@ -1,4 +1,3 @@
-
 import { type BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
 
 /**

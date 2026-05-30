@@ -10,7 +10,8 @@ import {
   generateHarmony,
   searchSymbols,
   smartTruncate,
-  symbolsToCopy} from "../src";
+  symbolsToCopy
+} from "../src";
 
 describe("design formatters and utils", () => {
   it("returns symbols and ascii table with correct descriptions", () => {

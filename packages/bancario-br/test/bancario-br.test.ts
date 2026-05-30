@@ -15,7 +15,8 @@ import {
   normalizarCodigoCompe,
   validarCartaoComBandeira,
   validarCartaoCredito,
-  validarContaBancaria} from "../src";
+  validarContaBancaria
+} from "../src";
 
 const fetchOriginal = globalThis.fetch;
 
@@ -138,10 +139,11 @@ describe("bancario-br", () => {
     it("função bancosBrasilApi() busca de forma assíncrona", async () => {
       globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: () => Promise.resolve([
-          { code: 1, fullName: "Banco do Brasil" },
-          { code: "341", name: "Itau Unibanco" }
-        ])
+        json: () =>
+          Promise.resolve([
+            { code: 1, fullName: "Banco do Brasil" },
+            { code: "341", name: "Itau Unibanco" }
+          ])
       });
 
       const lista = await bancosBrasilApi();
@@ -152,13 +154,14 @@ describe("bancario-br", () => {
     it("função bancosBCB() busca de forma assíncrona", async () => {
       globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        text: () => Promise.resolve(
-          [
-            "ISPB,Nome_Reduzido,Numero_Codigo,Participa_da_Compe,Tipo_Instituicao,Nome_Extenso",
-            '00000000,BB,001,Sim,Banco,"Banco do Brasil"',
-            '00000000,ITAU,341,Sim,Banco,"Itau Unibanco"'
-          ].join("\n")
-        )
+        text: () =>
+          Promise.resolve(
+            [
+              "ISPB,Nome_Reduzido,Numero_Codigo,Participa_da_Compe,Tipo_Instituicao,Nome_Extenso",
+              '00000000,BB,001,Sim,Banco,"Banco do Brasil"',
+              '00000000,ITAU,341,Sim,Banco,"Itau Unibanco"'
+            ].join("\n")
+          )
       });
 
       const lista = await bancosBCB();

@@ -12,7 +12,8 @@ import {
   isSHA256,
   isSHA512,
   validateHash,
-  validatePasswordStrength} from "../src";
+  validatePasswordStrength
+} from "../src";
 
 describe("crypto converters", () => {
   it("hashes md5, sha1, sha256, sha512 deterministically", () => {
@@ -120,7 +121,9 @@ describe("crypto validators", () => {
       )
     ).toBe(true);
     expect(validateHash("invalid", "md5")).toBe(false);
-    expect(validateHash("invalid", "invalid" as unknown as "md5" | "sha1" | "sha256" | "sha512")).toBe(false);
+    expect(
+      validateHash("invalid", "invalid" as unknown as "md5" | "sha1" | "sha256" | "sha512")
+    ).toBe(false);
   });
 
   it("validates password strength and returns detailed feedback", () => {

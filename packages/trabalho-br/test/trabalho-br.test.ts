@@ -5,7 +5,8 @@ import {
   calcularINSS,
   calcularIRRF,
   calcularRescisaoContrato,
-  formatarMoeda} from "../src";
+  formatarMoeda
+} from "../src";
 
 describe("trabalho-br", () => {
   it("calculates vacation with standard parameters", () => {

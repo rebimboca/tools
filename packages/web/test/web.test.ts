@@ -7,7 +7,8 @@ import {
   getMyOperatingSystem,
   isValidEmail,
   isValidUrl,
-  textToHtml} from "../src";
+  textToHtml
+} from "../src";
 
 describe("web", () => {
   it("parses browser user agent", () => {
