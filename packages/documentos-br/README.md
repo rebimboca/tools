@@ -1,55 +1,11 @@
 # @rebimboca/documentos-br
 
-Ferramentas de documentos brasileiros.
+![npm version](https://img.shields.io/npm/v/@rebimboca/documentos-br?color=2ea44f)
+![license](https://img.shields.io/npm/l/@rebimboca/documentos-br?color=0366d6)
+![types](https://img.shields.io/badge/types-TypeScript-3178c6)
+![runtime](https://img.shields.io/badge/runtime-Node%2018%2B-339933)
 
-## Ferramentas
-
-### Geradores
-
-#### `gerarCPF(comPontuacao?: boolean, estadoOrigem?: UF | "aleatorio"): string`
-
-#### `gerarCNPJ(comPontuacao?: boolean, formato?: "numerico" | "alfanumerico"): string`
-
-#### `gerarRG(comPontuacao?: boolean): string`
-
-#### `gerarCNH(comPontuacao?: boolean): string`
-
-#### `gerarPISPASEP(comPontuacao?: boolean): string`
-
-#### `gerarRENAVAM(comPontuacao?: boolean): string`
-
-#### `gerarTituloEleitor(estado: UF): string`
-
-#### `gerarInscricaoEstadual(estado: UF, comPontuacao?: boolean): string`
-
-#### `gerarCertidao(tipo: "nascimento" | "casamento" | "obito", comPontuacao?: boolean): string`
-
-#### `gerarCEP(opcoes?: { estado?: UF; cidade?: string; comPontuacao?: boolean }): CEPGerado`
-
-### Validadores
-
-#### `validarCPF(cpf: string): boolean`
-
-#### `validarCNPJ(cnpj: string): boolean`
-
-#### `validarRG(rg: string, estado?: UF): boolean`
-
-#### `validarCNH(cnh: string): boolean`
-
-#### `validarPISPASEP(pis: string): boolean`
-
-#### `validarRENAVAM(renavam: string): boolean`
-
-#### `validarTituloEleitor(titulo: string): boolean`
-
-#### `validarInscricaoEstadual(ie: string, estado: UF): boolean`
-
-#### `validarCertidao(numero: string, tipo: "nascimento" | "casamento" | "obito"): boolean`
-
-## Tipos úteis
-
-- `UF`: `AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO`
-- `CEPGerado`: `{ cep, endereco, bairro, cidade, estado }`
+Pacote completo com utilitários para validação e geração de documentos brasileiros oficiais.
 
 ## Instalação
 
@@ -57,11 +13,60 @@ Ferramentas de documentos brasileiros.
 pnpm add @rebimboca/documentos-br
 ```
 
-## Exemplo de uso
+## Visão Geral
+
+- 📄 Geração e validação de CPF, CNPJ e RG
+- 🚗 Geração e validação de CNH e RENAVAM
+- 🗳️ Geração e validação de Título de Eleitor
+- 🏢 Geração e validação de Inscrição Estadual (IE) e PIS/PASEP
+- 📜 Geração e validação de Certidões (Nascimento, Casamento, Óbito)
+- 📮 Geração de CEP válido
+
+## Geradores
+
+### Pessoas Físicas e Veículos
+- `gerarCPF(comPontuacao?, estadoOrigem?)`
+- `gerarRG(comPontuacao?)`
+- `gerarCNH(comPontuacao?)`
+- `gerarPISPASEP(comPontuacao?)`
+- `gerarRENAVAM(comPontuacao?)`
+- `gerarTituloEleitor(estado)`
+- `gerarCertidao(tipo, comPontuacao?)`
+
+### Pessoas Jurídicas e Endereços
+- `gerarCNPJ(comPontuacao?, formato?)`
+- `gerarInscricaoEstadual(estado, comPontuacao?)`
+- `gerarCEP(opcoes?)`
+
+## Utilitários Adicionais
+
+- `identificarDocumento(documento)` — Identifica heurísticamente o tipo de documento.
+- `formatarDocumento(documento)` — Aplica automaticamente a máscara correta ao documento informado.
+
+## Validadores
+
+- `validarCPF(cpf)`
+- `validarCNPJ(cnpj)`
+- `validarRG(rg, estado?)`
+- `validarCNH(cnh)`
+- `validarPISPASEP(pis)`
+- `validarRENAVAM(renavam)`
+- `validarTituloEleitor(titulo)`
+- `validarInscricaoEstadual(ie, estado)`
+- `validarCertidao(numero, tipo)`
+
+## Tipos Úteis
+
+- `UF`: String literal contendo todas as siglas de estados brasileiros (ex: `SP`, `RJ`, `MG`).
+- `CEPGerado`: Objeto contendo os dados do endereço (`cep`, `endereco`, `bairro`, `cidade`, `estado`).
+
+## Exemplo Rápido
 
 ```ts
-import { gerarCPF } from "@rebimboca/documentos-br";
+import { gerarCPF, validarCPF } from "@rebimboca/documentos-br";
 
-const cpfComPontuacao = gerarCPF(true);
-console.log(cpfComPontuacao);
+const cpf = gerarCPF(true, "SP");
+const valido = validarCPF(cpf);
+
+console.log(`CPF: ${cpf} | Válido: ${valido}`);
 ```

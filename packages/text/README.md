@@ -1,76 +1,67 @@
 # @rebimboca/text
 
-Text and string utilities.
+![npm version](https://img.shields.io/npm/v/@rebimboca/text?color=2ea44f)
+![license](https://img.shields.io/npm/l/@rebimboca/text?color=0366d6)
+![types](https://img.shields.io/badge/types-TypeScript-3178c6)
+![runtime](https://img.shields.io/badge/runtime-Node%2018%2B-339933)
 
-## Tools
+Pacote focado no processamento profundo de texto, transformações de strings e formatação idiomática.
 
-### Validators
-
-#### `correctSpelling(text: string): string`
-
-### Converters
-
-#### `textToHtml(text: string): string`
-
-#### `toUpperCase(text: string): string`
-
-#### `toLowerCase(text: string): string`
-
-#### `toTitleCase(text: string, options?: { ignoreShorterThan?: number; ignoreWords?: string[] }): string`
-
-#### `numberToWords(value: number, options?: { locale?: "pt-BR" | "en"; currency?: boolean }): string`
-
-#### `removeAccents(text: string): string`
-
-### Formatters
-
-#### `sortAlphabetically(text: string, options?: { order?: "asc" | "desc"; splitBy?: "newline" | "space" | "comma" | "semicolon"; dedupe?: boolean }): string`
-
-#### `truncateText(text: string, limit: number): string`
-
-#### `splitString(text: string, separator: string): string[]`
-
-#### `replaceOrRemoveNewlines(text: string, mode: "remove" | "replace", replaceWith?: string): string`
-
-#### `reverseText(text: string): string`
-
-#### `fancyLetters(text: string, style?: string): string`
-
-#### `customLetters(text: string, styleMap: Record<string, string>): string`
-
-#### `symbolsToCopy(category?: string): string[]` (reexport from `@rebimboca/design`)
-
-### Calculators
-
-#### `countCharacters(text: string): { characters: number; words: number; lines: number }`
-
-#### `countWordOccurrences(text: string, target: string): number`
-
-### Queries
-
-#### `characterInfo(value: string): Array<{ char: string; codePoint: number; hex: string }>`
-
-### Generators
-
-#### `generateLoremIpsum(options?: { mode?: "paragraphs" | "sentences" | "words"; amount?: number }): string`
-
-### Utils
-
-#### `normalizeWhitespace(text: string): string`
-
-#### `safeTrim(text: string): string`
-
-## Installation
+## Instalação
 
 ```bash
 pnpm add @rebimboca/text
 ```
 
-## Usage
+## Visão Geral
+
+- 🔄 Conversores estruturais (Uppercase, TitleCase, Número por Extenso)
+- ✂️ Formatadores (Truncate, Reverse, Slugify, Normalização de acentos)
+- 🧮 Contadores e análises léxicas (Caracteres, Palavras, Ocorrências, Tempo de Leitura)
+- 🎭 Gerador avançado de textos para mock (Lorem Ipsum)
+- ✍️ Corretor ortográfico automatizado
+
+## Conversores
+
+- `textToHtml(text)`
+- `toUpperCase(text)`
+- `toLowerCase(text)`
+- `toTitleCase(text, options?)`
+- `numberToWords(value, options?)` — Escreve números por extenso
+- `removeAccents(text)`
+
+## Formatadores
+
+- `toSlug(text)` — Gera identificadores compatíveis para URLs seguras
+- `sortAlphabetically(text, options?)`
+- `truncateText(text, limit)`
+- `splitString(text, separator)`
+- `replaceOrRemoveNewlines(text, mode, replaceWith?)`
+- `reverseText(text)`
+- `fancyLetters(text, style?)`
+- `customLetters(text, styleMap)`
+
+## Calculadoras & Consultas
+
+- `countCharacters(text)` — Retorna quantidade de caracteres, palavras e linhas.
+- `countWordOccurrences(text, target)`
+- `readingTime(text, wordsPerMinute?)` — Estima o tempo de leitura em minutos.
+- `characterInfo(value)` — Extrai o CodePoint e HEX de cada caractere.
+
+## Geradores
+
+### `generateLoremIpsum(options?)`
+
+Gera trechos customizados de texto baseados no padrão Lorem Ipsum para testes e placeholders.
+
+## Exemplo Rápido
 
 ```ts
-import { textToHtml } from "@rebimboca/text";
+import { numberToWords, toSlug } from "@rebimboca/text";
 
-const html = textToHtml("<b>rebimboca</b>");
-console.log(html);
+const valorExato = numberToWords(150, { locale: "pt-BR", currency: true });
+console.log(valorExato); // "cento e cinquenta reais"
+
+const link = toSlug("Atenção: Oferta Imperdível!");
+console.log(link); // "atencao-oferta-imperdivel"
 ```

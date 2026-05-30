@@ -1,3 +1,3 @@
-export * from "./meu-ip";
-export * from "./meu-navegador";
-export * from "./meu-sistema-operacional";
+export * from "./my-ip";
+export * from "./my-browser";
+export * from "./my-os";

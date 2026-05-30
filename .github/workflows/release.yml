@@ -1,8 +1,12 @@
 name: Release
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -12,7 +16,36 @@ permissions:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      needed: ${{ steps.check.outputs.needed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - id: check
+        name: Check if Release or Versioning is needed
+        run: |
+          # 1. Check if there are active changeset files (excluding config and README)
+          CHANGESETS=$(find .changeset -name "*.md" ! -name "README.md" 2>/dev/null | wc -l || echo 0)
+          
+          # 2. Check if the last commit was a Version Packages bump
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+          
+          if [ "$CHANGESETS" -gt 0 ] || [[ "$LAST_COMMIT_MSG" == *"Version Packages"* ]]; then
+            echo "needed=true" >> $GITHUB_OUTPUT
+            echo "Release/Version PR check: YES (Changesets: $CHANGESETS, Commit: $LAST_COMMIT_MSG)"
+          else
+            echo "needed=false" >> $GITHUB_OUTPUT
+            echo "Release/Version PR check: NO"
+          fi
+
   release:
+    needs: check-release
+    if: ${{ needs.check-release.outputs.needed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -51,13 +51,21 @@ importers:
         specifier: ^2.0.0
         version: 2.1.9(@types/node@25.9.1)
 
-  packages/bancario-br: {}
+  packages/bancario-br:
+    dependencies:
+      '@rebimboca/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   packages/crypto: {}
 
   packages/design: {}
 
-  packages/documentos-br: {}
+  packages/documentos-br:
+    dependencies:
+      '@rebimboca/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   packages/empresas-br:
     dependencies:
