@@ -1,10 +1,23 @@
 # @rebimboca/tools
 
-Aggregator package that re-exports the main packages.
+![npm version](https://img.shields.io/npm/v/@rebimboca/tools?color=2ea44f)
+![license](https://img.shields.io/npm/l/@rebimboca/tools?color=0366d6)
+![types](https://img.shields.io/badge/types-TypeScript-3178c6)
+![runtime](https://img.shields.io/badge/runtime-Node%2018%2B-339933)
 
-## Tools
+Pacote agregador central que atua como porta de entrada (Facade) reexportando as funcionalidades de todos os pacotes satélites do ecossistema Rebimboca Tools.
 
-### Included Packages
+## Instalação
+
+A maneira mais prática de importar ferramentas do ecossistema se você precisa de funcionalidades de múltiplas áreas:
+
+```bash
+pnpm add @rebimboca/tools
+```
+
+## Visão Geral
+
+Este pacote expõe diretamente em sua raiz os utilitários provenientes de:
 
 - `@rebimboca/documentos-br`
 - `@rebimboca/bancario-br`
@@ -21,14 +34,13 @@ Aggregator package that re-exports the main packages.
 - `@rebimboca/design`
 - `@rebimboca/image`
 
-## Usage
+## Exemplo Rápido
 
 ```ts
-import { gerarCPF, generatePassword, generateMetaTags } from "@rebimboca/tools";
-```
-
-## Installation
-
-```bash
-pnpm add @rebimboca/tools
+// Em vez de instalar 3 pacotes separados, importe tudo de um só lugar:
+import { 
+  gerarCPF, 
+  generatePassword, 
+  generateMetaTags 
+} from "@rebimboca/tools";
 ```

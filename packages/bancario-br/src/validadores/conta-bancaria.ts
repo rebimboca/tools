@@ -1,27 +1,24 @@
-const somenteDigitos = (valor: string): string => valor.replace(/\D/g, "");
+import { calculateModulo11, onlyDigits } from "@rebimboca/shared";
 
-const calcularDigitoModulo11 = (numero: string): string => {
-  let peso = 2;
-  let soma = 0;
-
-  for (let i = numero.length - 1; i >= 0; i -= 1) {
-    soma += Number(numero[i]) * peso;
-    peso = peso === 9 ? 2 : peso + 1;
-  }
-
-  const resto = soma % 11;
-  const digito = 11 - resto;
-
-  if (digito === 10) return "X";
-  if (digito === 11) return "0";
-  return String(digito);
-};
-
+/**
+ * Valida uma conta bancária verificando o dígito verificador Módulo 11.
+ *
+ * @param conta - Número da conta (apenas dígitos ou com pontuação).
+ * @param digito - Dígito verificador informado.
+ * @returns `true` se o dígito é consistente com a conta.
+ *
+ * @see https://www.bcb.gov.br/estabilidadefinanceira/cedulacheque - Manual de Normas de Contas e Dígito Verificador Módulo 11 (Banco Central do Brasil)
+ *
+ * @example
+ * ```ts
+ * validarContaBancaria("56789012", "3"); // true
+ * ```
+ */
 export function validarContaBancaria(conta: string, digito: string): boolean {
-  const contaNormalizada = somenteDigitos(conta);
+  const contaNormalizada = onlyDigits(conta);
   const digitoNormalizado = digito.trim().toUpperCase();
 
   if (!contaNormalizada || !digitoNormalizado) return false;
 
-  return calcularDigitoModulo11(contaNormalizada) === digitoNormalizado;
+  return calculateModulo11(contaNormalizada) === digitoNormalizado;
 }

@@ -31,6 +31,9 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@rebimboca/shared": "workspace:*"
+  },
   "scripts": {
     "dev": "tsup src/index.ts --watch",
     "build": "tsup",

@@ -24,7 +24,7 @@ export function gerarVeiculo(): VeiculoGerado {
     modelo: modelos[Math.floor(Math.random() * modelos.length)] ?? "Modelo",
     categoria: CATEGORIAS[Math.floor(Math.random() * CATEGORIAS.length)] ?? "Sedan",
     ano: 2000 + Math.floor(Math.random() * 27),
-    placa: gerarPlacaVeiculo(true),
+    placa: gerarPlacaVeiculo({ comPontuacao: true }),
     renavam: gerarRENAVAM(),
     cor: CORES[Math.floor(Math.random() * CORES.length)] ?? "Preto"
   };

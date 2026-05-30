@@ -1,30 +1,14 @@
-export const UFS = [
-  "AC",
-  "AL",
-  "AP",
-  "AM",
-  "BA",
-  "CE",
-  "DF",
-  "ES",
-  "GO",
-  "MA",
-  "MT",
-  "MS",
-  "MG",
-  "PA",
-  "PB",
-  "PR",
-  "PE",
-  "PI",
-  "RJ",
-  "RN",
-  "RS",
-  "RO",
-  "RR",
-  "SC",
-  "SP",
-  "SE",
-  "TO"
-] as const;
-export type UF = (typeof UFS)[number];
+import { UF as SharedUF, UFS as SharedUFS } from "@rebimboca/shared";
+
+/**
+ * Lista de todas as Unidades da Federação (estados e Distrito Federal) do Brasil.
+ * Re-exportado de `@rebimboca/shared` para consistência e centralização.
+ */
+export const UFS = SharedUFS;
+
+/**
+ * Tipo representando as siglas das Unidades da Federação brasileiras (SP, RJ, etc.).
+ * Re-exportado de `@rebimboca/shared` para consistência e centralização.
+ */
+export type UF = SharedUF;
+
