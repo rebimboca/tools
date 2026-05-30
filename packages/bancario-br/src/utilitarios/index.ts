@@ -1,4 +1,4 @@
-import { CodigoCompe } from "../tipos";
+import { type CodigoCompe } from "../tipos";
 
 /**
  * Normaliza um código COMPE para 3 dígitos.

@@ -1,5 +1,5 @@
-import { onlyDigits } from "@rebimboca/shared";
-import { BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
+
+import { type BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
 
 /**
  * Estrutura de um cartão de crédito gerado.

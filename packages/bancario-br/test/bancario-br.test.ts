@@ -1,22 +1,21 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import type { Banco, CodigoCompe } from "../src";
+import type { Banco } from "../src";
 import {
-  bancos,
   bancoPorCodigo,
   bancoPorNome,
-  bancosPorNome,
-  bancosBrasilApi,
+  bancos,
   bancosBCB,
+  bancosBrasilApi,
+  bancosPorNome,
   gerarCartaoCredito,
   gerarContaBancaria,
-  validarCartaoCredito,
-  validarCartaoComBandeira,
   identificarBandeiraCartao,
-  validarContaBancaria,
+  isValidIban,
   normalizarCodigoCompe,
-  isValidIban
-} from "../src";
+  validarCartaoComBandeira,
+  validarCartaoCredito,
+  validarContaBancaria} from "../src";
 
 const fetchOriginal = globalThis.fetch;
 
@@ -44,6 +43,13 @@ describe("bancario-br", () => {
     expect(cartao.bandeira).toBe("visa");
   });
 
+  it("identifica e valida bandeira do cartao", () => {
+    const visaCard = gerarCartaoCredito("visa");
+    expect(identificarBandeiraCartao(visaCard.numero)).toBe("visa");
+    expect(validarCartaoComBandeira(visaCard.numero, "visa")).toBe(true);
+    expect(validarCartaoComBandeira(visaCard.numero, "mastercard")).toBe(false);
+  });
+
   it("valida codigos IBAN com mod 97 e regras do Brasil", () => {
     // Valid German IBAN
     expect(isValidIban("DE75 5121 0800 1245 1261 99")).toBe(true);
@@ -58,7 +64,7 @@ describe("bancario-br", () => {
     // Invalid Brazilian IBAN (wrong length)
     expect(isValidIban("BR37 0003 8166 0000 0000 0412 345")).toBe(false);
     // Non-string
-    expect(isValidIban(123 as any)).toBe(false);
+    expect(isValidIban(123 as unknown as string)).toBe(false);
   });
 
   describe("API Fluida: bancos", () => {
@@ -132,11 +138,11 @@ describe("bancario-br", () => {
     it("função bancosBrasilApi() busca de forma assíncrona", async () => {
       globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => [
+        json: () => Promise.resolve([
           { code: 1, fullName: "Banco do Brasil" },
           { code: "341", name: "Itau Unibanco" }
-        ]
-      } as Response);
+        ])
+      });
 
       const lista = await bancosBrasilApi();
       expect(lista.length).toBeGreaterThan(0);
@@ -146,13 +152,14 @@ describe("bancario-br", () => {
     it("função bancosBCB() busca de forma assíncrona", async () => {
       globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        text: async () =>
+        text: () => Promise.resolve(
           [
             "ISPB,Nome_Reduzido,Numero_Codigo,Participa_da_Compe,Tipo_Instituicao,Nome_Extenso",
             '00000000,BB,001,Sim,Banco,"Banco do Brasil"',
             '00000000,ITAU,341,Sim,Banco,"Itau Unibanco"'
           ].join("\n")
-      } as Response);
+        )
+      });
 
       const lista = await bancosBCB();
       expect(lista.length).toBeGreaterThan(0);

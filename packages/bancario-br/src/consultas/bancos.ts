@@ -1,4 +1,4 @@
-import { CodigoCompe } from "../tipos";
+import { type CodigoCompe } from "../tipos";
 import { normalizarCodigoCompe } from "../utilitarios";
 
 export interface Banco {

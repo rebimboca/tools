@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { generateMetaTags, generateRobotsTxt, generateSitemap } from "../src";
 
 describe("seo", () => {

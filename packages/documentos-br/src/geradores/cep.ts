@@ -178,6 +178,6 @@ export function gerarCEP(opcoes?: {
     endereco: local.endereco,
     bairro: local.bairro,
     cidade: local.cidade,
-    estado: estado as UF
+    estado: estado
   };
 }

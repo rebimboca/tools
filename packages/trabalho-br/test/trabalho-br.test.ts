@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
+
 import {
   calcularFerias,
-  calcularRescisaoContrato,
-  formatarMoeda,
   calcularINSS,
-  calcularIRRF
-} from "../src";
+  calcularIRRF,
+  calcularRescisaoContrato,
+  formatarMoeda} from "../src";
 
 describe("trabalho-br", () => {
   it("calculates vacation with standard parameters", () => {

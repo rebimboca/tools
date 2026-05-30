@@ -1,5 +1,6 @@
-import { describe, it, expect } from "vitest";
-import { gerarTituloEleitor, validarTituloEleitor, formatarTituloEleitor } from "../src";
+import { describe, expect,it } from "vitest";
+
+import { formatarTituloEleitor,gerarTituloEleitor, validarTituloEleitor } from "../src";
 import { UFS } from "../src/utilitarios/tipos";
 
 describe("Título de Eleitor", () => {

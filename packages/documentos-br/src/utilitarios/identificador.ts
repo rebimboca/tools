@@ -63,9 +63,11 @@ export function formatarDocumento(documento: string): string {
       return formatarCEP(digits) || documento;
     case "PIS":
       return formatarPIS(digits) || documento;
+    case "RENAVAM":
+      return formatarRENAVAM(digits) || documento;
     case "TituloEleitor":
       return formatarTituloEleitor(digits) || documento;
-    default:
+    case "Desconhecido":
       return documento;
   }
 }

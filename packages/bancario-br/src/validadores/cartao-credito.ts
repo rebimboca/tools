@@ -1,5 +1,6 @@
 import { onlyDigits } from "@rebimboca/shared";
-import { BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
+
+import { type BandeiraCartao, CARD_PREFIXES } from "../tipos";
 
 /**
  * Valida um número de cartão de crédito usando o algoritmo de Luhn (Módulo 10).

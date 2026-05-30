@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import {
   asciiTable,
   calculateContrastRatio,
@@ -7,10 +8,9 @@ import {
   fancyLetters,
   generateGradient,
   generateHarmony,
-  symbolsToCopy,
+  searchSymbols,
   smartTruncate,
-  searchSymbols
-} from "../src";
+  symbolsToCopy} from "../src";
 
 describe("design formatters and utils", () => {
   it("returns symbols and ascii table with correct descriptions", () => {
@@ -33,7 +33,7 @@ describe("design formatters and utils", () => {
     expect(searchSymbols("clima")?.length).toBeGreaterThan(0);
     expect(searchSymbols("invalid")).toBeNull();
     expect(searchSymbols("")).toBeNull();
-    expect(searchSymbols(null as any)).toBeNull();
+    expect(searchSymbols(null as unknown as string)).toBeNull();
 
     const table = asciiTable();
     expect(table.length).toBe(128);
@@ -136,7 +136,7 @@ describe("design formatters and utils", () => {
   });
 
   it("smartTruncate truncates text gracefully", () => {
-    expect(smartTruncate(null as any, 10)).toBeNull();
+    expect(smartTruncate(null as unknown as string, 10)).toBeNull();
     expect(smartTruncate("hello", -1)).toBeNull();
 
     // Text fits

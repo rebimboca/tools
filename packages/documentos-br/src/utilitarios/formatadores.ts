@@ -79,7 +79,7 @@ export function formatarPIS(pis: string): string | null {
  * ```
  */
 export function formatarRG(rg: string): string | null {
-  const d = rg.replace(/[.\-]/g, "").toUpperCase();
+  const d = rg.replace(/[.-]/g, "").toUpperCase();
   if (!/^[0-9]{8}[0-9X]$/.test(d)) return null;
   return d.replace(/(\d{2})(\d{3})(\d{3})([\dX])/, "$1.$2.$3-$4");
 }

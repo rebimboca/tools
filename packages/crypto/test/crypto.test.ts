@@ -11,9 +11,8 @@ import {
   isSHA1,
   isSHA256,
   isSHA512,
-  validatePasswordStrength,
-  validateHash
-} from "../src";
+  validateHash,
+  validatePasswordStrength} from "../src";
 
 describe("crypto converters", () => {
   it("hashes md5, sha1, sha256, sha512 deterministically", () => {
@@ -92,7 +91,7 @@ describe("crypto validators", () => {
   it("validates md5, sha1, sha256, sha512 hash formats", () => {
     expect(isMD5("900150983cd24fb0d6963f7d28e17f72")).toBe(true);
     expect(isMD5("not-a-hash")).toBe(false);
-    expect(isMD5(null as any)).toBe(false);
+    expect(isMD5(null as unknown as string)).toBe(false);
 
     expect(isSHA1("a9993e364706816aba3e25717850c26c9cd0d89d")).toBe(true);
     expect(isSHA1("a9993e364706816aba3e25717850c26c9cd0d89g")).toBe(false); // invalid hex char 'g'
@@ -121,12 +120,12 @@ describe("crypto validators", () => {
       )
     ).toBe(true);
     expect(validateHash("invalid", "md5")).toBe(false);
-    expect(validateHash("invalid", "invalid" as any)).toBe(false);
+    expect(validateHash("invalid", "invalid" as unknown as "md5" | "sha1" | "sha256" | "sha512")).toBe(false);
   });
 
   it("validates password strength and returns detailed feedback", () => {
     // Bad inputs
-    const badInput = validatePasswordStrength(null as any);
+    const badInput = validatePasswordStrength(null as unknown as string);
     expect(badInput.score).toBe(0);
     expect(badInput.feedback).toContain("Senha inválida.");
 

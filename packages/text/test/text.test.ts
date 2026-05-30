@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
+
 import {
+  correctSpelling,
   countCharacters,
+  generateLoremIpsum,
+  numberToWords,
   removeAccents,
   replaceOrRemoveNewlines,
   sortAlphabetically,
-  numberToWords,
-  correctSpelling,
-  generateLoremIpsum,
   textToHtml,
   toSlug
 } from "../src";
