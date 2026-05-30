@@ -1,4 +1,4 @@
-import { calculateModulo11, onlyDigits } from "@rebimboca/shared";
+import { calculateModulo11 } from "@rebimboca/shared";
 
 /**
  * Estrutura de uma conta bancária gerada.
@@ -45,7 +45,6 @@ export function gerarContaBancaria(
     agencia,
     conta,
     digito,
-    contaCompleta: `${agencia}/${conta}-${digito}`,
+    contaCompleta: `${agencia}/${conta}-${digito}`
   };
 }
-

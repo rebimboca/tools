@@ -11,5 +11,12 @@ export * from "./seo";
 export * from "./text";
 export * from "./trabalho-br";
 export * from "./veiculos-br";
-export { generateQrCode, getMyBrowser, getMyIp, getMyOperatingSystem, isValidEmail, isValidUrl } from "./web";
+export {
+  generateQrCode,
+  getMyBrowser,
+  getMyIp,
+  getMyOperatingSystem,
+  isValidEmail,
+  isValidUrl
+} from "./web";
 export { textToHtml as webTextToHtml } from "./web";

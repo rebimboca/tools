@@ -1,3 +1,3 @@
 export * from "./ferias";
-export * from "./rescisao-contrato";
 export * from "./impostos";
+export * from "./rescisao-contrato";

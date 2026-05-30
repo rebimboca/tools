@@ -3,6 +3,7 @@
 ---
 
 Adiciona novas funções de validação e geração bancária:
+
 - Validador de IBAN (`isValidIban`) de acordo com o padrão do Banco Central do Brasil.
 - Gerador de chaves PIX aleatórias ou formatadas (`gerarChavePix`).
 - Identificação (`identificarBandeiraCartao`) e validação de bandeiras de cartões de crédito (`validarCartaoComBandeira`).

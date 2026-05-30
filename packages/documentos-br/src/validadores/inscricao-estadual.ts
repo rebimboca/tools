@@ -1,5 +1,5 @@
-import type { UF } from "../utilitarios/tipos";
 import { somenteDigitos } from "../utilitarios/somente-digitos";
+import type { UF } from "../utilitarios/tipos";
 
 /**
  * Valida matematicamente uma Inscrição Estadual (IE) de acordo com a UF especificada.

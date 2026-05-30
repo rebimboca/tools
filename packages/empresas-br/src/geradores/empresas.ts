@@ -33,7 +33,8 @@ export function gerarEmpresa(estado: UF = "SP"): EmpresaGerada {
     RAZOES_SOCIAIS[Math.floor(Math.random() * RAZOES_SOCIAIS.length)] ?? "Empresa Exemplo LTDA";
   const nomeFantasia =
     NOMES_FANTASIA[Math.floor(Math.random() * NOMES_FANTASIA.length)] ?? "Nome Fantasia Exemplo";
-  const atividade = ATIVIDADES[Math.floor(Math.random() * ATIVIDADES.length)] ?? "Comércio de Peças";
+  const atividade =
+    ATIVIDADES[Math.floor(Math.random() * ATIVIDADES.length)] ?? "Comércio de Peças";
 
   return {
     razaoSocial,

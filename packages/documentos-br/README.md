@@ -25,6 +25,7 @@ pnpm add @rebimboca/documentos-br
 ## Geradores
 
 ### Pessoas Físicas e Veículos
+
 - `gerarCPF(comPontuacao?, estadoOrigem?)`
 - `gerarRG(comPontuacao?)`
 - `gerarCNH(comPontuacao?)`
@@ -34,6 +35,7 @@ pnpm add @rebimboca/documentos-br
 - `gerarCertidao(tipo, comPontuacao?)`
 
 ### Pessoas Jurídicas e Endereços
+
 - `gerarCNPJ(comPontuacao?, formato?)`
 - `gerarInscricaoEstadual(estado, comPontuacao?)`
 - `gerarCEP(opcoes?)`

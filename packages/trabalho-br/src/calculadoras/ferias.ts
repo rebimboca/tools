@@ -37,12 +37,7 @@ export interface FeriasResultado {
  * ```
  */
 export function calcularFerias(entrada: FeriasEntrada): FeriasResultado | null {
-  if (
-    !entrada ||
-    entrada.salarioBase <= 0 ||
-    entrada.diasFerias < 1 ||
-    entrada.diasFerias > 30
-  ) {
+  if (!entrada || entrada.salarioBase <= 0 || entrada.diasFerias < 1 || entrada.diasFerias > 30) {
     return null;
   }
 

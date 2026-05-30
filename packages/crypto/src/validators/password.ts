@@ -34,7 +34,7 @@ export function validatePasswordStrength(password: string, minLength = 8): Passw
       hasDigits: false,
       hasSpecialChar: false,
       isLengthValid: false,
-      feedback: ["Senha inválida."],
+      feedback: ["Senha inválida."]
     };
   }
 
@@ -56,7 +56,8 @@ export function validatePasswordStrength(password: string, minLength = 8): Passw
   if (!hasUppercase) feedback.push("Adicione pelo menos uma letra maiúscula (A-Z).");
   if (!hasLowercase) feedback.push("Adicione pelo menos uma letra minúscula (a-z).");
   if (!hasDigits) feedback.push("Adicione pelo menos um número (0-9).");
-  if (!hasSpecialChar) feedback.push("Adicione pelo menos um caractere especial (ex: !, @, #, $, etc.).");
+  if (!hasSpecialChar)
+    feedback.push("Adicione pelo menos um caractere especial (ex: !, @, #, $, etc.).");
 
   // Calculate score based on met criteria
   let metCriteria = 0;
@@ -86,6 +87,6 @@ export function validatePasswordStrength(password: string, minLength = 8): Passw
     hasDigits,
     hasSpecialChar,
     isLengthValid,
-    feedback,
+    feedback
   };
 }

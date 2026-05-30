@@ -1,5 +1,6 @@
 import { onlyDigits } from "@rebimboca/shared";
-import { BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
+
+import { type BandeiraCartao, CARD_PREFIXES } from "../tipos";
 
 /**
  * Valida um número de cartão de crédito usando o algoritmo de Luhn (Módulo 10).
@@ -75,10 +76,7 @@ export function identificarBandeiraCartao(numero: string): BandeiraCartao | "des
  * validarCartaoComBandeira("5312000000000000", "amex"); // false (bandeira errada)
  * ```
  */
-export function validarCartaoComBandeira(
-  numero: string,
-  bandeira?: BandeiraCartao
-): boolean {
+export function validarCartaoComBandeira(numero: string, bandeira?: BandeiraCartao): boolean {
   if (!validarCartaoCredito(numero)) return false;
 
   if (!bandeira) return true;

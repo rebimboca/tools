@@ -55,7 +55,7 @@ export function gerarPessoa(opcoes?: { estado?: UF }): PessoaGerada | null {
     cpf: gerarCPF(true),
     cep: local.cep,
     cidade: local.cidade,
-    estado: local.estado as UF,
+    estado: local.estado,
     profissao: PROFISSOES[Math.floor(Math.random() * PROFISSOES.length)] ?? "Desenvolvedor",
     email: `${slug}@${domain}`
   };

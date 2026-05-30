@@ -1,5 +1,10 @@
-import { describe, it, expect } from "vitest";
-import { gerarInscricaoEstadual, validarInscricaoEstadual, formatarInscricaoEstadual } from "../src";
+import { describe, expect, it } from "vitest";
+
+import {
+  formatarInscricaoEstadual,
+  gerarInscricaoEstadual,
+  validarInscricaoEstadual
+} from "../src";
 
 describe("Inscrição Estadual", () => {
   it("deve gerar e validar IE válidas para SP", () => {

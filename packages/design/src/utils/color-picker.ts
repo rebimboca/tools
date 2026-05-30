@@ -109,7 +109,8 @@ export function colorPicker(input: ColorPickerInput): ColorInfo | null {
     const r = clamp(input.rgb.r);
     const g = clamp(input.rgb.g);
     const b = clamp(input.rgb.b);
-    const hex = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`.toUpperCase();
+    const hex =
+      `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`.toUpperCase();
     return {
       hex,
       rgb: { r, g, b },
@@ -120,7 +121,8 @@ export function colorPicker(input: ColorPickerInput): ColorInfo | null {
   if (input.hsl) {
     const { h, s, l } = input.hsl;
     const rgb = hslToRgb(h, s, l);
-    const hex = `#${rgb.r.toString(16).padStart(2, "0")}${rgb.g.toString(16).padStart(2, "0")}${rgb.b.toString(16).padStart(2, "0")}`.toUpperCase();
+    const hex =
+      `#${rgb.r.toString(16).padStart(2, "0")}${rgb.g.toString(16).padStart(2, "0")}${rgb.b.toString(16).padStart(2, "0")}`.toUpperCase();
     return {
       hex,
       rgb,
@@ -228,7 +230,7 @@ export function generateHarmony(
       const c1 = colorPicker({ hsl: { h, s, l: l1 } });
       const c2 = colorPicker({ hsl: { h, s, l: l2 } });
       const c3 = colorPicker({ hsl: { h, s, l: l3 } });
-      
+
       const candidates = [c1, c2, color, c3];
       candidates.forEach((c) => {
         if (c && !result.includes(c.hex)) {

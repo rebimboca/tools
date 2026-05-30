@@ -10,7 +10,11 @@ import { createHmac } from "node:crypto";
  *
  * @see https://datatracker.ietf.org/doc/html/rfc2104 - RFC 2104: HMAC (IETF)
  */
-export function encodeHMAC(text: string, secret: string, algorithm: string = "sha256"): string | null {
+export function encodeHMAC(
+  text: string,
+  secret: string,
+  algorithm: string = "sha256"
+): string | null {
   if (!text || !secret) return null;
   const hmac = createHmac(algorithm, secret);
   hmac.update(text);

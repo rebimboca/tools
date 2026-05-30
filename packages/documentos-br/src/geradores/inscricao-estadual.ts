@@ -22,7 +22,7 @@ export function gerarInscricaoEstadual(estado: UF): string {
   if (estado === "SP") {
     // Gera os 8 primeiros dígitos aleatórios
     const base = Array.from({ length: 8 }, () => Math.floor(Math.random() * 10)).join("");
-    
+
     // Pesos do primeiro DV: 1, 3, 4, 5, 6, 7, 8, 10
     const pesos1 = [1, 3, 4, 5, 6, 7, 8, 10];
     let soma1 = 0;

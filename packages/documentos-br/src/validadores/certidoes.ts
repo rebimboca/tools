@@ -1,5 +1,5 @@
+import { calcularDVCertidao, TIPO_CODIGO, type TipoCertidao } from "../geradores/certidoes";
 import { somenteDigitos } from "../utilitarios/somente-digitos";
-import { TIPO_CODIGO, calcularDVCertidao, TipoCertidao } from "../geradores/certidoes";
 
 /**
  * Valida um número de matrícula de certidão do Registro Civil brasileiro (padrão CNJ com 32 dígitos).
