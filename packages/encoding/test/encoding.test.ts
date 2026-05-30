@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import {
   base64Decode,
   base64Encode,
@@ -24,7 +25,7 @@ describe("encoding", () => {
 
   it("url and binary multibyte support", () => {
     expect(urlDecode(urlEncode("a b")!)).toBe("a b");
-    
+
     const text = "Café ☕";
     const binary = binaryEncode(text);
     expect(binaryDecode(binary!)).toBe(text);

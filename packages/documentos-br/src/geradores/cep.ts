@@ -38,14 +38,14 @@ const FAIXAS_CEP: Record<string, Array<[number, number]>> = {
   AP: [[68900000, 68999999]],
   AM: [
     [69000000, 69299999],
-    [69400000, 69899999],
+    [69400000, 69899999]
   ],
   RR: [[69300000, 69399999]],
   AC: [[69900000, 69999999]],
   DF: [[70000000, 73699999]],
   GO: [
     [72800000, 72999999],
-    [73700000, 76799999],
+    [73700000, 76799999]
   ],
   RO: [[76800000, 76999999]],
   TO: [[77000000, 77999999]],
@@ -53,7 +53,7 @@ const FAIXAS_CEP: Record<string, Array<[number, number]>> = {
   MS: [[79000000, 79999999]],
   PR: [[80000000, 87999999]],
   SC: [[88000000, 89999999]],
-  RS: [[90000000, 99999999]],
+  RS: [[90000000, 99999999]]
 };
 
 /**
@@ -64,46 +64,40 @@ const CIDADES: Record<string, Array<{ cidade: string; bairro: string; endereco: 
     { cidade: "Sao Paulo", bairro: "Centro", endereco: "Rua da Consolacao" },
     { cidade: "Campinas", bairro: "Cambui", endereco: "Avenida Norte-Sul" },
     { cidade: "Santos", bairro: "Gonzaga", endereco: "Avenida Ana Costa" },
-    { cidade: "Ribeirao Preto", bairro: "Centro", endereco: "Rua General Osorio" },
+    { cidade: "Ribeirao Preto", bairro: "Centro", endereco: "Rua General Osorio" }
   ],
   RJ: [
     { cidade: "Rio de Janeiro", bairro: "Copacabana", endereco: "Rua Barata Ribeiro" },
     { cidade: "Niteroi", bairro: "Icarai", endereco: "Rua Moreira Cesar" },
-    { cidade: "Petropolis", bairro: "Centro", endereco: "Rua do Imperador" },
+    { cidade: "Petropolis", bairro: "Centro", endereco: "Rua do Imperador" }
   ],
   MG: [
     { cidade: "Belo Horizonte", bairro: "Savassi", endereco: "Rua Pernambuco" },
-    { cidade: "Uberlandia", bairro: "Centro", endereco: "Avenida Afonso Pena" },
+    { cidade: "Uberlandia", bairro: "Centro", endereco: "Avenida Afonso Pena" }
   ],
   RS: [
     { cidade: "Porto Alegre", bairro: "Moinhos de Vento", endereco: "Rua Padre Chagas" },
-    { cidade: "Caxias do Sul", bairro: "Centro", endereco: "Rua Sinimbu" },
+    { cidade: "Caxias do Sul", bairro: "Centro", endereco: "Rua Sinimbu" }
   ],
   PR: [
     { cidade: "Curitiba", bairro: "Batel", endereco: "Avenida do Batel" },
-    { cidade: "Londrina", bairro: "Centro", endereco: "Rua Sergipe" },
+    { cidade: "Londrina", bairro: "Centro", endereco: "Rua Sergipe" }
   ],
   BA: [
     { cidade: "Salvador", bairro: "Barra", endereco: "Avenida Sete de Setembro" },
-    { cidade: "Feira de Santana", bairro: "Centro", endereco: "Rua Conselheiro Franco" },
+    { cidade: "Feira de Santana", bairro: "Centro", endereco: "Rua Conselheiro Franco" }
   ],
   PE: [
     { cidade: "Recife", bairro: "Boa Viagem", endereco: "Avenida Boa Viagem" },
-    { cidade: "Olinda", bairro: "Casa Caiada", endereco: "Rua do Sol" },
+    { cidade: "Olinda", bairro: "Casa Caiada", endereco: "Rua do Sol" }
   ],
-  CE: [
-    { cidade: "Fortaleza", bairro: "Meireles", endereco: "Avenida Beira Mar" },
-  ],
+  CE: [{ cidade: "Fortaleza", bairro: "Meireles", endereco: "Avenida Beira Mar" }],
   SC: [
     { cidade: "Florianopolis", bairro: "Centro", endereco: "Rua Felipe Schmidt" },
-    { cidade: "Joinville", bairro: "Centro", endereco: "Rua do Principe" },
+    { cidade: "Joinville", bairro: "Centro", endereco: "Rua do Principe" }
   ],
-  GO: [
-    { cidade: "Goiania", bairro: "Setor Bueno", endereco: "Avenida T-63" },
-  ],
-  DF: [
-    { cidade: "Brasilia", bairro: "Asa Sul", endereco: "SQS 308" },
-  ],
+  GO: [{ cidade: "Goiania", bairro: "Setor Bueno", endereco: "Avenida T-63" }],
+  DF: [{ cidade: "Brasilia", bairro: "Asa Sul", endereco: "SQS 308" }],
   PA: [{ cidade: "Belem", bairro: "Nazare", endereco: "Avenida Nazare" }],
   AM: [{ cidade: "Manaus", bairro: "Centro", endereco: "Avenida Eduardo Ribeiro" }],
   MA: [{ cidade: "Sao Luis", bairro: "Centro", endereco: "Rua Grande" }],
@@ -119,7 +113,7 @@ const CIDADES: Record<string, Array<{ cidade: string; bairro: string; endereco: 
   AC: [{ cidade: "Rio Branco", bairro: "Centro", endereco: "Rua Benjamin Constant" }],
   RR: [{ cidade: "Boa Vista", bairro: "Centro", endereco: "Avenida Ville Roy" }],
   AP: [{ cidade: "Macapa", bairro: "Centro", endereco: "Rua Candido Mendes" }],
-  ES: [{ cidade: "Vitoria", bairro: "Praia do Canto", endereco: "Rua Aleixo Netto" }],
+  ES: [{ cidade: "Vitoria", bairro: "Praia do Canto", endereco: "Rua Aleixo Netto" }]
 };
 
 /**
@@ -164,7 +158,7 @@ export function gerarCEP(opcoes?: {
 
   // Dados de localização
   const cidadesEstado = CIDADES[estado] ?? [
-    { cidade: "Cidade Exemplo", bairro: "Centro", endereco: "Rua Principal" },
+    { cidade: "Cidade Exemplo", bairro: "Centro", endereco: "Rua Principal" }
   ];
 
   let candidatos = cidadesEstado;
@@ -177,15 +171,13 @@ export function gerarCEP(opcoes?: {
 
   const local = candidatos[Math.floor(Math.random() * candidatos.length)]!;
 
-  const cep = opcoes?.comPontuacao
-    ? `${cepStr.slice(0, 5)}-${cepStr.slice(5)}`
-    : cepStr;
+  const cep = opcoes?.comPontuacao ? `${cepStr.slice(0, 5)}-${cepStr.slice(5)}` : cepStr;
 
   return {
     cep,
     endereco: local.endereco,
     bairro: local.bairro,
     cidade: local.cidade,
-    estado: estado as UF,
+    estado: estado
   };
 }

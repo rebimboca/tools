@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
+
 import {
+  correctSpelling,
   countCharacters,
+  generateLoremIpsum,
+  numberToWords,
   removeAccents,
   replaceOrRemoveNewlines,
   sortAlphabetically,
-  numberToWords,
-  correctSpelling,
-  generateLoremIpsum,
   textToHtml,
   toSlug
 } from "../src";
@@ -33,12 +34,16 @@ describe("text", () => {
     expect(numberToWords(1000000)).toBe("um milhão");
     expect(numberToWords(2500300)).toBe("dois milhões e quinhentos mil e trezentos");
     expect(numberToWords(1000000000)).toBe("um bilhão");
-    expect(numberToWords(1234567890)).toBe("um bilhão e duzentos e trinta e quatro milhões e quinhentos e sessenta e sete mil e oitocentos e noventa");
+    expect(numberToWords(1234567890)).toBe(
+      "um bilhão e duzentos e trinta e quatro milhões e quinhentos e sessenta e sete mil e oitocentos e noventa"
+    );
   });
 
   it("corrects spelling with expanded dictionary", () => {
     expect(correctSpelling("vc nao sabe tbm")).toBe("você não sabe também");
-    expect(correctSpelling("Concerteza derrepente e excessao")).toBe("Com certeza de repente é exceção");
+    expect(correctSpelling("Concerteza derrepente e excessao")).toBe(
+      "Com certeza de repente é exceção"
+    );
     expect(correctSpelling("")).toBeNull();
   });
 

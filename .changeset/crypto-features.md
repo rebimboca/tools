@@ -3,6 +3,7 @@
 ---
 
 Melhorias robustas em criptografia e segurança:
+
 - Validador centralizado de hashes sintáticos MD5, SHA-1, SHA-256 e SHA-512 (`validateHash`).
 - Suporte a geração de assinaturas HMAC (`encodeHMAC`).
 - Funções dedicadas para geração de SHA-256 e SHA-512 (`encodeSHA256` e `encodeSHA512`).

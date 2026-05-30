@@ -7,7 +7,7 @@ const HTML_MAP: Record<string, string> = {
   "<": "&lt;",
   ">": "&gt;",
   '"': "&quot;",
-  "'": "&#39;",
+  "'": "&#39;"
 };
 
 /**

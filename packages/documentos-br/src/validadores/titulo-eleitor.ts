@@ -21,7 +21,7 @@ import { somenteDigitos } from "../utilitarios/somente-digitos";
  */
 export function validarTituloEleitor(valor: string): boolean {
   if (!valor) return false;
-  
+
   const titulo = somenteDigitos(valor);
   if (titulo.length !== 12) return false;
 
@@ -44,7 +44,7 @@ export function validarTituloEleitor(valor: string): boolean {
   if (resto1 === 10) {
     dv1Esperado = 0;
   } else if (resto1 === 0) {
-    dv1Esperado = (ufCode === "01" || ufCode === "02") ? 1 : 0;
+    dv1Esperado = ufCode === "01" || ufCode === "02" ? 1 : 0;
   }
 
   if (dv1Informado !== dv1Esperado) return false;
@@ -61,7 +61,7 @@ export function validarTituloEleitor(valor: string): boolean {
   if (resto2 === 10) {
     dv2Esperado = 0;
   } else if (resto2 === 0) {
-    dv2Esperado = (ufCode === "01" || ufCode === "02") ? 1 : 0;
+    dv2Esperado = ufCode === "01" || ufCode === "02" ? 1 : 0;
   }
 
   return dv2Informado === dv2Esperado;

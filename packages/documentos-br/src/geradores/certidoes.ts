@@ -12,7 +12,7 @@ export type TipoCertidao = "nascimento" | "casamento" | "obito";
 export const TIPO_CODIGO: Record<TipoCertidao, string> = {
   nascimento: "1",
   casamento: "2",
-  obito: "4",
+  obito: "4"
 };
 
 const TIPOS_VALIDOS = new Set<string>(["nascimento", "casamento", "obito"]);
@@ -81,9 +81,8 @@ export function calcularDVCertidao(base: string): string {
   const resto = soma % 11;
   const d = resto >= 10 ? 0 : resto;
   // Segundo dígito
-  let soma2 = soma + d * ((base.length % 10) + 1);
+  const soma2 = soma + d * ((base.length % 10) + 1);
   const resto2 = soma2 % 11;
   const d2 = resto2 >= 10 ? 0 : resto2;
   return `${d}${d2}`;
 }
-

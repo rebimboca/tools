@@ -20,7 +20,7 @@ export function getMyIp(ip: string): { ip: string } | null;
  * @param ip - Optional IP string for manual mode.
  * @see https://www.ipify.org/ - Public IP API provider used for fetching
  */
-export function getMyIp(ip?: string): any {
+export function getMyIp(ip?: string): Promise<{ ip: string } | null> | { ip: string } | null {
   if (typeof ip === "string") {
     if (!ip.trim()) return null;
     return { ip: ip.trim() };
@@ -31,9 +31,10 @@ export function getMyIp(ip?: string): any {
     .fetch("https://api.ipify.org?format=json")
     .then((res) => {
       if (!res.ok) return null;
-      return res.json().then((data: any) => {
-        if (data && typeof data.ip === "string") {
-          return { ip: data.ip };
+      return res.json().then((data: unknown) => {
+        const json = data as { ip?: unknown } | null;
+        if (json && typeof json.ip === "string") {
+          return { ip: json.ip };
         }
         return null;
       });

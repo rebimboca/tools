@@ -1,5 +1,4 @@
-import { onlyDigits } from "@rebimboca/shared";
-import { BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
+import { type BandeiraCartao, CARD_LENGTHS, CARD_PREFIXES } from "../tipos";
 
 /**
  * Estrutura de um cartão de crédito gerado.
@@ -78,8 +77,6 @@ export function gerarCartaoCredito(bandeira: BandeiraCartao = "visa"): CartaoCre
     numero,
     mascarado: numero.replace(/(\d{4})(?=\d)/g, "$1 "),
     bandeira: normalizado,
-    dataValidade,
+    dataValidade
   };
 }
-
-

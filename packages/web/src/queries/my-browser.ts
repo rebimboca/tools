@@ -16,7 +16,7 @@ export function getMyBrowser(
   userAgent?: string
 ): { name: string; version?: string; userAgent: string } | null {
   if (!userAgent) return null;
-  
+
   const patterns: Array<[RegExp, string]> = [
     [/Firefox\/(\d+(?:\.\d+)*)/, "Firefox"],
     [/Edg\/(\d+(?:\.\d+)*)/, "Edge"],

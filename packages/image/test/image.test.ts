@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { generateImage } from "../src";
 
 describe("image", () => {

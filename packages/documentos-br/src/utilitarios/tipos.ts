@@ -1,4 +1,4 @@
-import { UF as SharedUF, UFS as SharedUFS } from "@rebimboca/shared";
+import { type UF as SharedUF, UFS as SharedUFS } from "@rebimboca/shared";
 
 /**
  * Lista de todas as Unidades da Federação (estados e Distrito Federal) do Brasil.
@@ -11,4 +11,3 @@ export const UFS = SharedUFS;
  * Re-exportado de `@rebimboca/shared` para consistência e centralização.
  */
 export type UF = SharedUF;
-

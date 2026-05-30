@@ -16,7 +16,7 @@ export function calcularINSS(salarioBruto: number): number {
 
   // Faixas progressivas de INSS para 2024/2025/2026
   const faixas = [
-    { limite: 1412.00, aliquota: 0.075 },
+    { limite: 1412.0, aliquota: 0.075 },
     { limite: 2666.68, aliquota: 0.09 },
     { limite: 4000.03, aliquota: 0.12 },
     { limite: 7786.02, aliquota: 0.14 }
@@ -60,7 +60,7 @@ export function calcularINSS(salarioBruto: number): number {
  */
 export function calcularIRRF(salarioBruto: number, descontoINSS: number, dependentes = 0): number {
   const baseCalculo = salarioBruto - descontoINSS - dependentes * 189.59;
-  if (baseCalculo <= 2259.20) return 0;
+  if (baseCalculo <= 2259.2) return 0;
 
   let aliquota = 0;
   let deducao = 0;
@@ -76,7 +76,7 @@ export function calcularIRRF(salarioBruto: number, descontoINSS: number, depende
     deducao = 662.77;
   } else {
     aliquota = 0.275;
-    deducao = 896.00;
+    deducao = 896.0;
   }
 
   const irrf = baseCalculo * aliquota - deducao;

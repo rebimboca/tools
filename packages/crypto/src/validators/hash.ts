@@ -89,4 +89,3 @@ export function validateHash(value: string, type: "md5" | "sha1" | "sha256" | "s
       return false;
   }
 }
-

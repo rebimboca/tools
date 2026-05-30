@@ -121,7 +121,7 @@ import {
   bancosPorNome,
   bancosBCB,
   gerarCartaoCredito,
-  validarCartaoCredito,
+  validarCartaoCredito
 } from "@rebimboca/bancario-br";
 
 const banco = bancoPorCodigo(341);

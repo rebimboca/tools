@@ -38,9 +38,5 @@ Este pacote expõe diretamente em sua raiz os utilitários provenientes de:
 
 ```ts
 // Em vez de instalar 3 pacotes separados, importe tudo de um só lugar:
-import { 
-  gerarCPF, 
-  generatePassword, 
-  generateMetaTags 
-} from "@rebimboca/tools";
+import { gerarCPF, generatePassword, generateMetaTags } from "@rebimboca/tools";
 ```

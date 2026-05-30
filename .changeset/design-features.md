@@ -3,6 +3,7 @@
 ---
 
 Expansão das utilidades visuais e de design:
+
 - Busca inteligente e case-insensitive de símbolos Unicode com normalização (`searchSymbols`).
 - Paletas de cores predefinidas para Material Design e TailwindCSS (`getMaterialPalette` e `getTailwindPalette`).
 - Manipulação programática de tons (funções rápidas `lighten` e `darken`).

@@ -1,5 +1,14 @@
 import { describe, expect, it, vi } from "vitest";
-import { generateQrCode, getMyBrowser, getMyOperatingSystem, textToHtml, getMyIp, isValidEmail, isValidUrl } from "../src";
+
+import {
+  generateQrCode,
+  getMyBrowser,
+  getMyIp,
+  getMyOperatingSystem,
+  isValidEmail,
+  isValidUrl,
+  textToHtml
+} from "../src";
 
 describe("web", () => {
   it("parses browser user agent", () => {
@@ -46,7 +55,7 @@ describe("web", () => {
     const mockFetch = vi.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true,
-        json: () => Promise.resolve({ ip: "192.168.0.1" }),
+        json: () => Promise.resolve({ ip: "192.168.0.1" })
       } as Response)
     );
     vi.stubGlobal("fetch", mockFetch);
@@ -62,7 +71,7 @@ describe("web", () => {
     expect(isValidEmail("test@example.com")).toBe(true);
     expect(isValidEmail("invalid-email")).toBe(false);
     expect(isValidEmail("test@com")).toBe(false);
-    expect(isValidEmail(null as any)).toBe(false);
+    expect(isValidEmail(null as unknown as string)).toBe(false);
   });
 
   it("validates URLs correctly with optional protocols", () => {
@@ -72,6 +81,6 @@ describe("web", () => {
     expect(isValidUrl("ftp://files.example.com", ["https"])).toBe(false);
     expect(isValidUrl("ftp://files.example.com", ["ftp", "https"])).toBe(true);
     expect(isValidUrl("invalid-url")).toBe(false);
-    expect(isValidUrl(123 as any)).toBe(false);
+    expect(isValidUrl(123 as unknown as string)).toBe(false);
   });
 });

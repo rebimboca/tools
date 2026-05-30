@@ -23,13 +23,17 @@ pnpm add @rebimboca/shared
 ## Conteúdo Principal
 
 ### `utils/guards.ts`
+
 Type Guards do TypeScript para garantir segurança na tipagem em runtime.
 
 ### `utils/modulo11.ts`
+
 Implementação robusta e eficiente do algoritmo Módulo 11 (usado em CPF, CNPJ, Contas Bancárias, etc).
 
 ### `utils/only-digits.ts`
+
 Extrator otimizado que isola e retorna exclusivamente cadeias numéricas de uma string.
 
 ### `utils/escape-html.ts`
+
 Sanitizador focado na prevenção de XSS ao escapar caracteres restritos do HTML.
