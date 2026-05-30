@@ -87,7 +87,7 @@ export const bancos: ReadonlyArray<Banco> = [
   { codigo: "655", nome: "Neon (Votorantim)" },
   { codigo: "745", nome: "Citibank" },
   { codigo: "748", nome: "Sicredi" },
-  { codigo: "756", nome: "Sicoob" },
+  { codigo: "756", nome: "Sicoob" }
 ];
 
 /**
@@ -142,10 +142,7 @@ export function bancoPorNome(
  * @param listaBancos - Lista de bancos opcional para busca (padrão: base estática).
  * @returns Lista de bancos encontrados.
  */
-export function bancosPorNome(
-  nome: string,
-  listaBancos: ReadonlyArray<Banco> = bancos
-): Banco[] {
+export function bancosPorNome(nome: string, listaBancos: ReadonlyArray<Banco> = bancos): Banco[] {
   const termo = limparTextoBusca(nome);
   if (!termo) return [];
   return listaBancos.filter((banco) => limparTextoBusca(banco.nome).includes(termo));
@@ -175,7 +172,7 @@ export async function bancosBrasilApi(): Promise<Banco[]> {
       if (!codigo) return null;
       return {
         codigo,
-        nome: b.fullName || b.name || "Banco Sem Nome",
+        nome: b.fullName || b.name || "Banco Sem Nome"
       };
     })
     .filter((b): b is Banco => b !== null);
@@ -226,7 +223,7 @@ export async function bancosBCB(): Promise<Banco[]> {
       if (codigo) {
         parsedBancos.push({
           codigo,
-          nome: nome.replace(/^"|"$/g, "").trim(),
+          nome: nome.replace(/^"|"$/g, "").trim()
         });
       }
     }

@@ -57,7 +57,9 @@ export function generatePassword(options?: Omit<GeneratePasswordOptions, "amount
  * @param options - Configuration for password generation, with amount specified.
  * @returns Array of generated passwords, or `null` if options are invalid.
  */
-export function generatePassword(options: GeneratePasswordOptions & { amount: number }): string[] | null;
+export function generatePassword(
+  options: GeneratePasswordOptions & { amount: number }
+): string[] | null;
 
 /**
  * Generates one or more random passwords with configurable character sets.
@@ -74,7 +76,7 @@ export function generatePassword(options: GeneratePasswordOptions = {}): string 
     includeLowercase = true,
     includeNumbers = true,
     includeSpecialChars = true,
-    amount = 1,
+    amount = 1
   } = options;
 
   if (length < 4 || length > 128 || amount < 1 || amount > 50) return null;

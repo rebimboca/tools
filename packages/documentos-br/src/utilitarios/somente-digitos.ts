@@ -13,4 +13,3 @@ import { onlyDigits } from "@rebimboca/shared";
  * ```
  */
 export const somenteDigitos = onlyDigits;
-

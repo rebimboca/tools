@@ -12,14 +12,16 @@ import {
   isSHA256,
   isSHA512,
   validatePasswordStrength,
-  validateHash,
+  validateHash
 } from "../src";
 
 describe("crypto converters", () => {
   it("hashes md5, sha1, sha256, sha512 deterministically", () => {
     expect(encodeMD5("abc")).toBe("900150983cd24fb0d6963f7d28e17f72");
     expect(encodeSHA1("abc")).toBe("a9993e364706816aba3e25717850c26c9cd0d89d");
-    expect(encodeSHA256("abc")).toBe("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
+    expect(encodeSHA256("abc")).toBe(
+      "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    );
     expect(encodeSHA512("abc")).toBe(
       "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f"
     );
@@ -47,7 +49,7 @@ describe("crypto generators (senha)", () => {
         includeUppercase: false,
         includeLowercase: false,
         includeNumbers: false,
-        includeSpecialChars: false,
+        includeSpecialChars: false
       })
     ).toBeNull();
   });
@@ -77,7 +79,7 @@ describe("crypto generators (senha)", () => {
     const pwd = generatePassword({
       includeUppercase: false,
       includeSpecialChars: false,
-      length: 20,
+      length: 20
     });
     expect(/[A-Z]/.test(pwd!)).toBe(false);
     expect(/[^A-Za-z0-9]/.test(pwd!)).toBe(false);
@@ -109,7 +111,9 @@ describe("crypto validators", () => {
   it("validates hash algorithm with unified validateHash function", () => {
     expect(validateHash("900150983cd24fb0d6963f7d28e17f72", "md5")).toBe(true);
     expect(validateHash("a9993e364706816aba3e25717850c26c9cd0d89d", "sha1")).toBe(true);
-    expect(validateHash("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", "sha256")).toBe(true);
+    expect(
+      validateHash("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", "sha256")
+    ).toBe(true);
     expect(
       validateHash(
         "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f",

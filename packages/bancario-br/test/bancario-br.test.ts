@@ -134,8 +134,8 @@ describe("bancario-br", () => {
         ok: true,
         json: async () => [
           { code: 1, fullName: "Banco do Brasil" },
-          { code: "341", name: "Itau Unibanco" },
-        ],
+          { code: "341", name: "Itau Unibanco" }
+        ]
       } as Response);
 
       const lista = await bancosBrasilApi();
@@ -150,8 +150,8 @@ describe("bancario-br", () => {
           [
             "ISPB,Nome_Reduzido,Numero_Codigo,Participa_da_Compe,Tipo_Instituicao,Nome_Extenso",
             '00000000,BB,001,Sim,Banco,"Banco do Brasil"',
-            '00000000,ITAU,341,Sim,Banco,"Itau Unibanco"',
-          ].join("\n"),
+            '00000000,ITAU,341,Sim,Banco,"Itau Unibanco"'
+          ].join("\n")
       } as Response);
 
       const lista = await bancosBCB();

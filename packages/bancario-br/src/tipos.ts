@@ -14,7 +14,7 @@ export const CARD_LENGTHS: Record<BandeiraCartao, number> = {
   mastercard: 16,
   amex: 15,
   elo: 16,
-  hipercard: 16,
+  hipercard: 16
 };
 
 /** Prefixos de BIN (Bank Identification Number) para cada bandeira */
@@ -23,7 +23,7 @@ export const CARD_PREFIXES: Record<BandeiraCartao, readonly string[]> = {
   mastercard: ["51", "52", "53", "54", "55"],
   amex: ["34", "37"],
   elo: ["636368", "438935", "504175", "451416"],
-  hipercard: ["606282"],
+  hipercard: ["606282"]
 };
 
 /** Bandeiras disponíveis */

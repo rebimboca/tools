@@ -45,7 +45,6 @@ export function gerarContaBancaria(
     agencia,
     conta,
     digito,
-    contaCompleta: `${agencia}/${conta}-${digito}`,
+    contaCompleta: `${agencia}/${conta}-${digito}`
   };
 }
-

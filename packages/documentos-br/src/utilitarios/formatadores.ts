@@ -138,4 +138,3 @@ export function formatarInscricaoEstadual(ie: string, estado: string): string | 
   }
   return ie;
 }
-

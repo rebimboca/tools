@@ -21,7 +21,7 @@ pnpm add @rebimboca/image
 
 ### `generateImage(options)`
 
-Gera uma imagem de mock para uso temporário. Retorna a URL final que pode ser incorporada a tags de imagem HTML. 
+Gera uma imagem de mock para uso temporário. Retorna a URL final que pode ser incorporada a tags de imagem HTML.
 
 Suporta configurações customizadas de dimensão, texto e cor.
 

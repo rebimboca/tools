@@ -32,7 +32,7 @@ describe("seo", () => {
       author: '"><script>alert(2)</script>'
     });
     expect(out).not.toContain('"><script>');
-    expect(out).toContain('&lt;script&gt;');
+    expect(out).toContain("&lt;script&gt;");
   });
 
   it("generates valid robots.txt", () => {

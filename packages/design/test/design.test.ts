@@ -9,7 +9,7 @@ import {
   generateHarmony,
   symbolsToCopy,
   smartTruncate,
-  searchSymbols,
+  searchSymbols
 } from "../src";
 
 describe("design formatters and utils", () => {

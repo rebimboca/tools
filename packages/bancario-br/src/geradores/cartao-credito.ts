@@ -78,8 +78,6 @@ export function gerarCartaoCredito(bandeira: BandeiraCartao = "visa"): CartaoCre
     numero,
     mascarado: numero.replace(/(\d{4})(?=\d)/g, "$1 "),
     bandeira: normalizado,
-    dataValidade,
+    dataValidade
   };
 }
-
-

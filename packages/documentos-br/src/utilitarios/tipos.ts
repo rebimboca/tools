@@ -11,4 +11,3 @@ export const UFS = SharedUFS;
  * Re-exportado de `@rebimboca/shared` para consistência e centralização.
  */
 export type UF = SharedUF;
-
